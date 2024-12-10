@@ -50,17 +50,9 @@ public class MyString {
      * @return true is str1 is a subset of str2, false otherwise
      */
     public static boolean subsetOf(String str1, String str2) {
-        boolean flag2 = true;
         for (int i = 0; i < str1.length(); i++) {
-            boolean flag1 = false;
-            for (int j = 0; j < str2.length(); j++) {
-                if (countChar(str1, str1.charAt(i)) >= countChar(str2, str2.charAt(j))) {
-                    flag1 = true;
-                }
-            }
-            flag2 &= flag1;// && flag2;
+
         }
-        return flag2;
     }
 
     /**
@@ -74,9 +66,10 @@ public class MyString {
      */
     public static String spacedString(String str) {
         String strSpace = "";
-        for (int i = 0; i < str.length(); i++) {
+        for (int i = 0; i < str.length() - 1; i++) {
             strSpace = strSpace + str.charAt(i) + " ";
         }
+        strSpace = strSpace + str.charAt(str.length() - 1);
         return strSpace;
     }
 
