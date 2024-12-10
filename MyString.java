@@ -1,3 +1,5 @@
+import javax.print.DocFlavor.STRING;
+
 /**
  * A library of string functions.
  */
@@ -10,9 +12,8 @@ public class MyString {
         System.out.println(spacedString(hello));
         System.out.println(spacedString("hey"));
         System.out.println(subsetOf("tt", "enter"));
-        System.out.println((int) (Math.random() * 26) + 97);
         System.out.println(randomStringOfLetters(3));
-        System.out.println(Math.random());
+        System.out.println(remove("commitee", "meet"));
 
         //// Put your other tests here.
     }
@@ -110,8 +111,22 @@ public class MyString {
      * @return a string consisting of str1 minus all the characters of str2
      */
     public static String remove(String str1, String str2) {
-        //// Replace the following statement with your code
-        return null;
+        String removal = "";
+        boolean flag = true;
+        for (int i = 0; i < str1.length(); i++) {
+            for (int j = 0; j < str2.length(); j++) {
+                if (str2.charAt(j) == str1.charAt(i)) {
+                    flag = false;
+                    str2 = str2.substring(0, j) + str2.substring(j + 1);
+                }
+            }
+            if (flag) {
+                removal = removal + str1.charAt(i);
+            }
+            flag = true;
+
+        }
+        return removal;
     }
 
     /**
