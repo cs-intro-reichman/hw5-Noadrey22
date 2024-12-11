@@ -14,6 +14,7 @@ public class MyString {
         System.out.println(subsetOf("tt", "enter"));
         System.out.println(randomStringOfLetters(3));
         System.out.println(remove("commitee", "meet"));
+        System.out.println(subsetOf("tt", "enter"));
 
         //// Put your other tests here.
     }
@@ -51,7 +52,6 @@ public class MyString {
      */
     public static boolean subsetOf(String str1, String str2) {
         for (int i = 0; i < str1.length(); i++) { // 1 for, 1 if indexof is -1, if no, remove char from str2, use
-                                                  // removal
             if (str1.indexOf(str2.charAt(i)) == -1) {
                 return false;
             } else {

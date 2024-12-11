@@ -2,6 +2,8 @@
  * RUNI version of the Scrabble game.
  */
 
+import java.util.Dictionary;
+
 import javax.print.DocFlavor.STRING;
 
 public class Scrabble {
@@ -57,7 +59,11 @@ public class Scrabble {
 
 	// Checks if the given word is in the dictionary.
 	public static boolean isWordInDictionary(String word) {
-		//// Replace the following statement with your code
+		for (int i = 0; i < DICTIONARY.length; i++) {
+			if (DICTIONARY[i].equals(word)) {
+				return true;
+			}
+		}
 		return false;
 	}
 
@@ -66,16 +72,28 @@ public class Scrabble {
 	// the score.
 	// If the word includes the sequence "runi", adds 1000 points to the game.
 	public static int wordScore(String word) {
-		//// Replace the following statement with your code
-		return 0;
+		int score = 0;
+		for (int i = 0; i < SCRABBLE_LETTER_VALUES.length; i++) {
+			score = score + SCRABBLE_LETTER_VALUES[word.charAt(i) - 97];
+		}
+		if (word.length() == HAND_SIZE) {
+			score = score + 50;
+		}
+		if (MyString.subsetOf("runi", word)) {
+			score = score + 1000;
+		}
+
+		return score;
 	}
 
 	// Creates a random hand of length (HAND_SIZE - 2) and then inserts
 	// into it, at random indexes, the letters 'a' and 'e'
 	// (these two vowels make it easier for the user to construct words)
 	public static String createHand() {
-		//// Replace the following statement with your code
-		return null;
+		String givenHand = MyString.randomStringOfLetters(HAND_SIZE - 2);
+		givenHand = MyString.insertRandomly('a', givenHand);
+		givenHand = MyString.insertRandomly('e', givenHand);
+		return givenHand;
 	}
 
 	// Runs a single hand in a Scrabble game. Each time the user enters a valid
