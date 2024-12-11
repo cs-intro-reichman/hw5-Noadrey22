@@ -53,6 +53,7 @@ public class MyString {
         for (int i = 0; i < str1.length(); i++) {
 
         }
+        return true;
     }
 
     /**
