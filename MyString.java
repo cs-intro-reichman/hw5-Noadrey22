@@ -50,7 +50,14 @@ public class MyString {
      * @return true is str1 is a subset of str2, false otherwise
      */
     public static boolean subsetOf(String str1, String str2) {
-        for (int i = 0; i < str1.length(); i++) {
+        for (int i = 0; i < str1.length(); i++) { // 1 for, 1 if indexof is -1, if no, remove char from str2, use
+                                                  // removal
+            if (str1.indexOf(str2.charAt(i)) == -1) {
+                return false;
+            } else {
+                str1 = remove(str1, "" + str1.charAt(0));
+                str2 = remove(str2, "" + str1.charAt(0));
+            }
 
         }
         return true;
