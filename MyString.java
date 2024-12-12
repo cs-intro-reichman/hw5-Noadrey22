@@ -125,7 +125,7 @@ public class MyString {
                 removal = removal + str1.charAt(i);
             }
             flag = true;
-
+            // d
         }
         return removal;
     }
