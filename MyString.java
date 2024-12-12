@@ -11,7 +11,7 @@ public class MyString {
         System.out.println(countChar(hello, 'z'));
         System.out.println(spacedString(hello));
         System.out.println(spacedString("hey"));
-        System.out.println(subsetOf("tt", "enter"));
+        // System.out.println(subsetOf("tt", "enter"));
         System.out.println(randomStringOfLetters(3));
         System.out.println(remove("commitee", "meet"));
         System.out.println(subsetOf("tt", "enter"));
@@ -52,12 +52,14 @@ public class MyString {
      * @return true is str1 is a subset of str2, false otherwise
      */
     public static boolean subsetOf(String str1, String str2) {
+        // String str3 = str1;
         for (int i = 0; i < str1.length(); i++) { // 1 for, 1 if indexof is -1, if no, remove char from str2, use
-            if (str2.indexOf(str1.charAt(i)) == -1) {
+            if (str2.indexOf(str1.charAt(0)) == -1) {
                 return false;
             } else {
-                str1 = remove(str1, "" + str1.charAt(0));
                 str2 = remove(str2, "" + str1.charAt(0));
+                str1 = remove(str1, "" + str1.charAt(0));
+                str1 += " ";
             }
 
         }
