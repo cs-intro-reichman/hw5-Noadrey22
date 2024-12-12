@@ -129,7 +129,7 @@ public class Scrabble {
 				score = score + accumulatedValue;
 				hand = MyString.remove(hand, input);
 				System.out.println(input + " earned " + accumulatedValue +
-						" points. Score: " + score + " points");
+						" points. Score: " + score + " points\n");
 			} else
 				System.out.println("Invalid word. try again. ");
 		}
