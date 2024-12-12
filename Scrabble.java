@@ -131,7 +131,7 @@ public class Scrabble {
 				System.out.println(input + " earned " + accumulatedValue +
 						" points. Score: " + score + " points\n");
 			} else
-				System.out.println("Invalid word. try again.");
+				System.out.println("Invalid word. Try again.");
 		}
 
 		if (hand.length() == 0) {
