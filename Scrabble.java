@@ -105,6 +105,7 @@ public class Scrabble {
 	public static void playHand(String hand) {
 		int n = hand.length();
 		int score = 0;
+		int accumulatedValue = 0;
 		// Declares the variable in to refer to an object of type In, and initializes it
 		// to represent
 		// the stream of characters coming from the keyboard. Used for reading the
@@ -116,11 +117,23 @@ public class Scrabble {
 			// Reads the next "token" from the keyboard. A token is defined as a string of
 			// non-whitespace characters. Whitespace is either space characters, or
 			// end-of-line characters.
+
 			String input = in.readString();
 			//// Replace the following break statement with code
 			//// that completes the hand playing loop
-			break;
+			if (input.equals(("."))) {
+				break;
+			}
+			if (isWordInDictionary(input)) {
+				accumulatedValue = wordScore(input);
+				score = score + accumulatedValue;
+				hand = MyString.remove(hand, input);
+				System.out.println(input + accumulatedValue +
+						" points. Score: " + score + " points");
+			} else
+				System.out.println("Invalid word. try again. ");
 		}
+
 		if (hand.length() == 0) {
 			System.out.println("Ran out of letters. Total score: " + score + " points");
 		} else {
@@ -142,20 +155,23 @@ public class Scrabble {
 			System.out.println("Enter n to deal a new hand, or e to end the game:");
 			// Gets the user's input, which is all the characters entered by
 			// the user until the user enter the ENTER character.
-			String input = in.readString();
-			//// Replace the following break statement with code
+			String input = in.readString();//// Replace the following break statement with code
 			//// that completes the game playing loop
-			break;
+			if (input.equals("e")) {
+				break;
+			}
+			if (input.equals("n")) {
+				playHand(createHand());
+			}
 		}
 	}
 
 	public static void main(String[] args) {
 		//// Uncomment the test you want to run
-		////testBuildingTheDictionary();  
-		////testScrabbleScore();    
-		////testCreateHands();  
-		////testPlayHands();
-		////playGame();
+		////testBuildingTheDictionary();
+		// testScrabbleScore();
+		// testCreateHands();
+		testPlayHands();////playGame();
 	}
 
 	public static void testBuildingTheDictionary() {
@@ -182,8 +198,8 @@ public class Scrabble {
 
 	public static void testPlayHands() {
 		init();
-		// playHand("ocostrza");
-		// playHand("arbffip");
-		// playHand("aretiin");
+		playHand("ocostrza");
+		playHand("arbffip");
+		playHand("aretiin");
 	}
 }
