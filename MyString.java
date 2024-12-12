@@ -15,6 +15,7 @@ public class MyString {
         System.out.println(randomStringOfLetters(3));
         System.out.println(remove("commitee", "meet"));
         System.out.println(subsetOf("tt", "enter"));
+        System.out.println(subsetOf("enr", "enter"));
 
         //// Put your other tests here.
     }
@@ -73,6 +74,8 @@ public class MyString {
      * @return a string consisting of the characters of str, separated by spaces.
      */
     public static String spacedString(String str) {
+        if (str.length() == 0)
+            return "";
         str = str.trim();
         String strSpace = "";
         for (int i = 0; i < str.length() - 1; i++) {
